@@ -3,7 +3,7 @@
 An MQTT broker on top of [Netty](netty.io). This is a very early stage
 project and should be considered experimental.
 
-The intention is to build a fully async non-blocking MQTT server.
+The intention is to build a fully async event-driven MQTT server.
 
 ## Motivation
 
