@@ -10,7 +10,7 @@
    :jig/project "../mqtt-broker/project.clj"}
 
   :mqtt-handler
-  {:jig/component mqtt-broker.core/MqttHandler
+  {:jig/component mqtt-broker.broker/MqttHandler
    :jig/project "../mqtt-broker/project.clj"}
 
   :mqtt-server

@@ -1,5 +1,5 @@
 ;; Copyright © 2014, OpenSensors.IO. All Rights Reserved.
-(ns mqtt-broker.core
+(ns mqtt-broker.broker
   (:require jig)
   (:import
    (io.netty.channel ChannelHandlerAdapter)
