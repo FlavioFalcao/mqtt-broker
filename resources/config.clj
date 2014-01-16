@@ -19,4 +19,39 @@
    :jig/project "../mqtt-broker/project.clj"
    :port 1883}
 
+  :cljs-builder
+  {:jig/component jig.cljs-builder/Builder
+   :jig/project "../mqtt-broker/project.clj"
+   :output-dir "../mqtt-broker/target/js"
+   :output-to "../mqtt-broker/target/js/main.js"
+   :source-map "../mqtt-broker/target/js/main.js.map"
+   :optimizations :none
+   }
+
+  :cljs-server
+  {:jig/component jig.bidi/ClojureScriptRouter
+   :jig/dependencies [:cljs-builder]
+   :jig.web/context "/cljsjs/"
+   }
+
+  :admin
+  {:jig/component mqtt-broker.admin/Website
+   :jig/project "../mqtt-broker/project.clj"
+   :jig/dependencies []
+   }
+
+  :admin/routing
+  {:jig/component jig.bidi/Router
+   :jig/project "../mqtt-broker/project.clj"
+   :jig/dependencies [:cljs-server :admin]
+   ;; Optionally, route systems can be mounted on a sub-context
+   ;;:jig.web/context "/services"
+   }
+
+  :admin/server
+  {:jig/component jig.http-kit/Server
+   :jig/project "../mqtt-broker/project.clj"
+   :jig/dependencies [:admin/routing]
+   :port 8000}
+
   }}
