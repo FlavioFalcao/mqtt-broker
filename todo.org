@@ -1,3 +1,37 @@
 
-* TODO Create handler component
+* DONE Create handler component
+
 * TODO Add channel groups
+
+* TODO Authorization
+** TODO For publications
+** TODO For subscriptions
+
+* TODO Support subscriptions to multiple topics
+remove the use of first
+
+* TODO Topic patterns (wildcards, etc.) - refer to spec.
+
+* TODO Liberator view on users
+
+* TODO BCrypt for passwords
+
+* TODO QoS 1
+
+* TODO QoS 2
+
+* TODO Last Will And Testament
+
+* TODO Retains
+
+* TODO Disconnection logic (last will and testament, etc.)
+
+* TODO Testing
+
+* TODO Show messages arriving via websockets onto ui
+- [ ] Add a Jig async channel X
+- [ ] admin depends on X for reading, start go block reading it
+- [ ] broker depends on X for writing, write into it on message arrival
+- [ ] wrap counter in React
+- [ ] In cljs, on receipt of message, increment #counter
+- [ ] mosquitto pub something with quite heavy traffic

@@ -40,10 +40,16 @@
    :jig/dependencies []
    }
 
+  :admin/webevents
+  {:jig/component mqtt-broker.admin/Webevents
+   :jig/project "../mqtt-broker/project.clj"
+   :jig/dependencies []
+   }
+
   :admin/routing
   {:jig/component jig.bidi/Router
    :jig/project "../mqtt-broker/project.clj"
-   :jig/dependencies [:cljs-server :admin]
+   :jig/dependencies [:admin/webevents :cljs-server :admin]
    ;; Optionally, route systems can be mounted on a sub-context
    ;;:jig.web/context "/services"
    }

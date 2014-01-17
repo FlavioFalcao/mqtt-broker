@@ -8,3 +8,9 @@
    [ajax.core :refer (GET POST)]))
 
 (.log js/console "ClojureScript ready!")
+
+(let [ws (js/WebSocket. "ws://localhost:8000/events")]
+  (set! (.-onmessage ws)
+        (fn [ev]
+          (let [message (.-data ev)]
+            (.log js/console "OMG, a message!" message)))))
